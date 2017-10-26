@@ -3,5 +3,26 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+  <display-name>Système de gestion Web Application</display-name>
+  
+  <servlet>
+  	<servlet-name>CollaborateursController</servlet-name>
+  	<servlet-class>dev.sgp.web.CollaborateursController</servlet-class>
+  </servlet>
+  
+    <servlet>
+  	<servlet-name>EditerCollaborateursController</servlet-name>
+  	<servlet-class>dev.sgp.web.EditerCollaborateursController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>CollaborateursController</servlet-name>
+  	<url-pattern>/collaborateurs/lister</url-pattern>
+  </servlet-mapping>
+  
+    <servlet-mapping>
+  	<servlet-name>EditerCollaborateursController</servlet-name>
+  	<url-pattern>/collaborateurs/editer</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
