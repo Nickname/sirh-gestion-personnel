@@ -1,11 +1,15 @@
 package dev.sgp.web;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dev.sgp.model.Collaborateur;
+import static dev.sgp.util.Constantes.*;
 
 public class CollaborateursController extends HttpServlet {
 
@@ -13,17 +17,10 @@ public class CollaborateursController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		List<Collaborateur> collaborateurs = COLLAB_SERVICE.listCollaborateur();
 		
-		String avecPhotoParam = req.getParameter("avecPhoto");
-
-		String departementParam = req.getParameter("departement");
-		res.setContentType("text/html");
-		
-		res.getWriter().write("<h1>Liste des collaborateurs</h1>"
-				+ "<ul>"
-				+ "<li>avecPhoto = " + avecPhotoParam + "</li>"
-				+ "<li>departement = " + departementParam + "</li>"
-				+ "</ul>");
+		req.setAttribute("listeCollabo", collaborateurs);
+		req.getRequestDispatcher("/WEB-INF/view/lister.jsp").forward(req, res);
 	}
 
 }

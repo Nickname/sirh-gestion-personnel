@@ -1,3 +1,6 @@
+<%@ page import="dev.sgp.model.Collaborateur" %>
+<%@ page import="java.util.List" %>
+<%@ page language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +12,8 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="script/nav.js"></script>
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
+  <script src="<%=request.getContextPath()%>/script/nav.js"></script>
 </head>
 <body id="collaborateurs">
   <header id="bandeau" class="">
@@ -37,7 +40,7 @@
         <div id="filtre_dep" class="row top5 col-12">
           <div class="col-8">Filtrer par département : </div>
           <select class="form-control col-4" name="filtre_dep">
-            <option value="Comptabilité">Comptabilité</option>
+            <option value="ComptabilitÃ©">Comptabilité</option>
             <option value="Ressources Humaines">Ressources Humaines</option>
             <option value="Informatique">Informatique</option>
           </select>
@@ -49,81 +52,45 @@
     </div>
 
     <div id="liste_collabo" class="row top10">
+    
+	<% 
+	
+	List<Collaborateur> listeCollabo = (List<Collaborateur>) request.getAttribute("listeCollabo");
+	
+	for (Collaborateur collabo : listeCollabo) {
+	
+	%>
 
       <div id="collabo" class="card border-primary md-3" style="width: 20rem;">
-        <h4 id="name" class="card-header">Prénom NOM</h4>
+        <h4 id="name" class="card-header"><%= collabo.getPrenom() + " " + collabo.getNom() %></h4>
         <div id="contenu" class="card-body">
-          <img class="card-img-left img-responsive" style="max-height:150px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmtRhS0il0UU65L4prJy0ZtbBP5iVWQQB7JyYYL4dtM9Q2BJ3yLQ" alt="">
-          <div id="description">
+          <img class="card-img-left img-responsive col-4" style="max-height:150px; margin-top:25%;" src="<%=request.getContextPath()%>/img/<%= collabo.getId() %>.jpg" alt="">
+          <div id="description" class="col-8">
             <span class="row">
               <p>Fonction</p>
-              <p>{data}</p>
+              <p><%= collabo.getFonction() %></p>
             </span>
             <span class="row">
               <p>Département</p>
-              <p>{data}</p>
+              <p><%= collabo.getDepartement() %></p>
             </span>
             <span class="row">
               <p>Email</p>
-              <p>{data}</p>
+              <p><%= collabo.getEmail() %></p>
             </span>
-            <span class="row"><p>Téléphone</p><p>{data}</p></span>
+            <span class="row"><p>Téléphone</p><p><%= collabo.getTel() %></p></span>
           </div>
         </div>
         <a href="editer.html">
           <button id="editer" type="button" class="btn btn-primary" name="button">Editer</button>
         </a>
       </div>
+      
+	<%
 
-      <div id="collabo" class="card border-primary md-3" style="width: 20rem;">
-        <h4 id="name" class="card-header">Prénom NOM</h4>
-        <div id="contenu" class="card-body">
-          <img class="card-img-left img-responsive" style="max-height:150px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmtRhS0il0UU65L4prJy0ZtbBP5iVWQQB7JyYYL4dtM9Q2BJ3yLQ" alt="">
-          <div id="description">
-            <span class="row">
-              <p>Fonction</p>
-              <p>{data}</p>
-            </span>
-            <span class="row">
-              <p>Département</p>
-              <p>{data}</p>
-            </span>
-            <span class="row">
-              <p>Email</p>
-              <p>{data}</p>
-            </span>
-            <span class="row"><p>Téléphone</p><p>{data}</p></span>
-          </div>
-        </div>
-        <a href="editer.html">
-          <button id="editer" type="button" class="btn btn-primary" name="button">Editer</button>
-        </a>
-      </div>
+	}
 
-      <div id="collabo" class="card border-primary md-3" style="width: 20rem;">
-        <h4 id="name" class="card-header">Prénom NOM</h4>
-        <div id="contenu" class="card-body">
-          <img class="card-img-left img-responsive" style="max-height:150px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmtRhS0il0UU65L4prJy0ZtbBP5iVWQQB7JyYYL4dtM9Q2BJ3yLQ" alt="">
-          <div id="description">
-            <span class="row">
-              <p>Fonction</p>
-              <p>{data}</p>
-            </span>
-            <span class="row">
-              <p>Département</p>
-              <p>{data}</p>
-            </span>
-            <span class="row">
-              <p>Email</p>
-              <p>{data}</p>
-            </span>
-            <span class="row"><p>Téléphone</p><p>{data}</p></span>
-          </div>
-        </div>
-        <a href="editer.html">
-          <button id="editer" type="button" class="btn btn-primary" name="button">Editer</button>
-        </a>
-      </div>
+	%>
 
     </div>
 
