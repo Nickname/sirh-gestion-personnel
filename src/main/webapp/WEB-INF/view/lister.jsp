@@ -22,7 +22,7 @@
   <div id="container" class="col-12 top10">
 
     <div class="row offset-8 col-4">
-      <a href="creer.html">
+      <a href="http://localhost:8080/sgp/page/collaborateurs/creer">
         <button class="btn btn-primary btn-block" type="button" name="button">
           Ajouter un nouveau collaborateur
         </button>
@@ -40,7 +40,7 @@
         <div id="filtre_dep" class="row top5 col-12">
           <div class="col-8">Filtrer par département : </div>
           <select class="form-control col-4" name="filtre_dep">
-            <option value="ComptabilitÃ©">Comptabilité</option>
+            <option value="Comptabilité">Comptabilité</option>
             <option value="Ressources Humaines">Ressources Humaines</option>
             <option value="Informatique">Informatique</option>
           </select>
@@ -64,7 +64,7 @@
       <div id="collabo" class="card border-primary md-3" style="width: 20rem;">
         <h4 id="name" class="card-header"><%= collabo.getPrenom() + " " + collabo.getNom() %></h4>
         <div id="contenu" class="card-body">
-          <img class="card-img-left img-responsive col-4" style="max-height:150px; margin-top:25%;" src="<%=request.getContextPath()%>/img/<%= collabo.getId() %>.jpg" alt="">
+          <img class="card-img-left img-responsive col-4" style="max-height:150px; margin-top:25%;" src="<%=request.getContextPath()%>/img/collabo<%= collabo.getId() %>.jpg" alt="">
           <div id="description" class="col-8">
             <span class="row">
               <p>Fonction</p>

@@ -13,7 +13,7 @@ public class CollaborateurService {
 	}
 	
 	public void init() {
-		collaborateurs.add(new Collaborateur("Pingouin", "Bec", "Ressources Humaines", 01, "pingouin@banquise.com", "0618349568"));
+		collaborateurs.add(new Collaborateur("Pingouin", "Bec"));
 	}
 	
 	public List<Collaborateur> listCollaborateur() {

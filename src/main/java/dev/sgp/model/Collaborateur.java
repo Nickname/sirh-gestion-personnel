@@ -1,16 +1,19 @@
 package dev.sgp.model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 public class Collaborateur {
 	private int id;
-	private static int currentId = 0;
+	private static int currentId = 100;
 	
 	private String prenom;
 	private String nom;
 	private String fonction;
 	private int departement;
+	private String adresse;
 	private String email;
 	private String tel;
 	private String matricule;
@@ -19,15 +22,12 @@ public class Collaborateur {
 	private ZonedDateTime dateCreation;
 	private boolean actif;
 	
-	public Collaborateur(String prenom, String nom, String fonction, int departement, String email, String tel) {
+	public Collaborateur(String prenom, String nom) {
 		this.id = currentId++;
 		this.prenom = prenom;
 		this.nom = nom;
-		this.fonction = fonction;
-		this.departement = departement;
-		this.email = email;
-		this.tel = tel;
-		//this.dateCreation = new ZonedDateTime(null, null, null);
+		this.dateCreation = ZonedDateTime.of(LocalDateTime.now(), ZoneId.systemDefault());
+		this.matricule = "M" + this.id;
 	}
 	
 	public int getId() {
@@ -68,6 +68,14 @@ public class Collaborateur {
 	
 	public void setDepartement(int departement) {
 		this.departement = departement;
+	}
+	
+	public String getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
 	}
 	
 	public String getEmail() {
@@ -112,10 +120,6 @@ public class Collaborateur {
 
 	public ZonedDateTime getDateCreation() {
 		return dateCreation;
-	}
-
-	public void setDateCreation(ZonedDateTime dateCreation) {
-		this.dateCreation = dateCreation;
 	}
 
 	public boolean isActif() {

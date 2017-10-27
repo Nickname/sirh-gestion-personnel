@@ -1,3 +1,4 @@
+<%@ page language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,32 +10,48 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="script/nav.js"></script>
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
+  <script src="<%=request.getContextPath()%>/script/nav.js"></script>
 </head>
-<body id="activites">
+<body id="statistiques">
   <header id="bandeau" class="">
   </header>
 
-  <div id="container" class="col-12 top50">
+  <div id="container" class="col-md-12 col-lg-12 top50">
 
-    <h1 class="display-4">Activités depuis le démarrage</h1>
+    <h1 class="display-4">Statistiques</h1>
 
     <table class="table table-bordered table-hover">
       <thead class="thead-light">
         <tr>
-          <th>Date/Heure</th>
-          <th>Libellé</th>
+          <th>Chemin</th>
+          <th>Nombre de visites</th>
+          <th>Min (ms)</th>
+          <th>Max (ms)</th>
+          <th>Moyenne (ms)</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>10/10/2017 10:50:52</td>
-          <td>Création d'un nouveau collarborateur - matricule XXXXXX (lien)</td>
+          <td>/collaborateurs/editer</td>
+          <td>500</td>
+          <td>10</td>
+          <td>1000</td>
+          <td>500</td>
         </tr>
         <tr>
-          <td>10/10/2017 10:52:52</td>
-          <td>Modification d'un collarborateur - matricule XXXXXX (lien)</td>
+          <td>/collaborateurs/lister</td>
+          <td>500</td>
+          <td>10</td>
+          <td>1000</td>
+          <td>500</td>
+        </tr>
+        <tr>
+          <td>/collaborateurs/nouveau</td>
+          <td>500</td>
+          <td>10</td>
+          <td>1000</td>
+          <td>500</td>
         </tr>
       </tbody>
     </table>

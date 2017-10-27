@@ -1,3 +1,4 @@
+<%@ page language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +10,8 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="script/nav.js"></script>
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
+  <script src="<%=request.getContextPath()%>/script/nav.js"></script>
 </head>
 <body id="collaborateurs">
   <header id="bandeau" class="">
@@ -26,10 +27,10 @@
       <div class="col-8">
         <div class="row">
           <div class="col-10">
-            <h1 class="display-p4">Nom Prénom - Matricule</h1>
+            <h1 class="display-p4">Nom PrÃ©nom - Matricule</h1>
           </div>
           <div class="col-1">
-            <button type="button" class="btn btn-danger top10" name="button">Désactiver</button>
+            <button type="button" class="btn btn-danger top10" name="button">DÃ©sactiver</button>
           </div>
         </div>
 
@@ -39,7 +40,7 @@
               <div class="card-header" role="tab" id="headingOne">
                 <h5 class="mb-0">
                   <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Identité
+                    IdentitÃ©
                   </a>
                 </h5>
               </div>
@@ -49,9 +50,9 @@
                   <form>
                     <div class="row">
                       <div class="col-11 mb-3">
-                        <label for="civilite">Civilité</label>
+                        <label for="civilite">CivilitÃ©</label>
                         <select id="civilite" class="form-control col-6">
-                          <option value="Comptabilité">Mr.</option>
+                          <option value="ComptabilitÃ©">Mr.</option>
                           <option value="Ressources Humaines">Mme.</option>
                         </select>
                       </div>
@@ -65,10 +66,10 @@
                         </div>
                       </div>
                       <div class="col mb-3">
-                        <label for="prenom">Prénom</label>
+                        <label for="prenom">PrÃ©nom</label>
                         <input type="text" class="form-control" id="prenom" required>
                         <div class="invalid-feedback">
-                          Prénom obligatoire
+                          PrÃ©nom obligatoire
                         </div>
                       </div>
                     </div>
@@ -92,16 +93,16 @@
                     </div>
                     <div class="row">
                       <div class="col-12 mb-3">
-                        <label for="num_social">Numéro de sécurité sociale</label>
+                        <label for="num_social">NumÃ©ro de sÃ©curitÃ© sociale</label>
                         <input type="text" class="form-control" id="num_social" required>
                         <div class="invalid-feedback">
-                          Numéro de sécurité sociale obligatoire
+                          NumÃ©ro de sÃ©curitÃ© sociale obligatoire
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-6 mb-3">
-                        <label for="tel">Téléphone</label>
+                        <label for="tel">TÃ©lÃ©phone</label>
                         <input type="text" class="form-control" id="tel">
                       </div>
                     </div>
@@ -126,7 +127,7 @@
                     <div class="top10 offset-1">
                       <div class="row">
                         <div class="col-md-11 mb-3">
-                          <label for="nom">Département</label>
+                          <label for="nom">DÃ©partement</label>
                           <input type="text" class="form-control" id="nom">
                         </div>
                       </div>
@@ -145,7 +146,7 @@
               <div class="card-header" role="tab" id="headingThree">
                 <h5 class="mb-0">
                   <a data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                    Coordonnées Bancaires
+                    CoordonnÃ©es Bancaires
                   </a>
                 </h5>
               </div>

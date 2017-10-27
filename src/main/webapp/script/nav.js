@@ -9,13 +9,13 @@ $(document).ready(function(){
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="navbar-nav">
             <li id='collaborateurs' class="nav-item">
-              <a class='nav-link' href='index.html'>Collaborateurs</a>
+              <a class='nav-link' href='http://localhost:8080/sgp/page/collaborateurs/lister'>Collaborateurs</a>
             </li>
             <li id='statistiques' class="nav-item">
-              <a class='nav-link' href='statistique.html'>Statistiques</a>
+              <a class='nav-link' href='http://localhost:8080/sgp/page/statistiques'>Statistiques</a>
             </li>
             <li id='activites' class="nav-item">
-              <a class='nav-link' href='activite.html'>Activités</a>
+              <a class='nav-link' href='http://localhost:8080/sgp/page/activites'>Activités</a>
             </li>
           </ul>
         </div>

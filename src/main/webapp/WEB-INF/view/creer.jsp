@@ -1,3 +1,4 @@
+<%@ page language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +11,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css">
-  <script src="script/nav.js"></script>
-  <script src="script/valid_form.js"></script>
+  <script src="<%=request.getContextPath()%>/script/nav.js"></script>
+  <script src="<%=request.getContextPath()%>/script/valid_form.js"></script>
 </head>
 <body id="collaborateurs">
   <header id="bandeau" class="">
@@ -21,19 +22,19 @@
 
   <h1 class="row top10 col-md-12 col-lg-12">Nouveau collaborateur</h1>
 
-    <form>
+    <form method="POST" action="localhost:8080/collaborateurs">
       <div class="col-10 top10 offset-1">
         <div class="row">
           <div class="col mb-3">
             <label for="nom">Nom</label>
-            <input type="text" class="form-control" id="nom" required>
+            <input type="text" class="form-control" id="nom" name="nom" required>
             <div class="invalid-feedback">
               Nom obligatoire
             </div>
           </div>
           <div class="col mb-3">
             <label for="prenom">Prénom</label>
-            <input type="text" class="form-control" id="prenom" required>
+            <input type="text" class="form-control" id="prenom" name="prenom" required>
             <div class="invalid-feedback">
               Prénom obligatoire
             </div>
@@ -42,7 +43,7 @@
         <div class="row">
           <div class="col mb-3">
             <label for="date_naissance">Date de naissance</label>
-            <input type="date" class="form-control" id="date_naissance" required>
+            <input type="date" class="form-control" id="date_naissance" name="date_naissance" required>
             <div class="invalid-feedback">
               Date de naissance obligatoire
             </div>
@@ -51,7 +52,7 @@
         <div class="row">
           <div class="col mb-3">
             <label for="adresse">Adresse</label>
-            <input type="text" class="form-control" id="adresse" required>
+            <input type="text" class="form-control" id="adresse" name="adresse" required>
             <div class="invalid-feedback">
               Adresse obligatoire
             </div>
@@ -60,7 +61,7 @@
         <div class="row">
           <div class="col mb-3">
             <label for="num_social">Numéro de sécurité sociale</label>
-            <input type="text" class="form-control" id="num_social" required>
+            <input type="text" class="form-control" id="num_social" name="num_social" required>
             <div class="invalid-feedback">
               Numéro de sécurité sociale obligatoire
             </div>
