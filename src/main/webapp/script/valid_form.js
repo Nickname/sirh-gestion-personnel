@@ -20,10 +20,9 @@ $(document).ready(function() {
   $("#send").on("click", function(e) {
     e.preventDefault();
 
-    $("#form-contenu").append("<div class='col-5'><p>Nom</p></div>");
-    $("#form-contenu").append("<div class='col-7'><p>" + $("#nom").val() + "</p></div>");
+    $("#val_nom>p").val() = $("#nom").val();
 
-    $("#form-contenu").append("<div class='col-5'><p>Prénom</p></div>");
+    $("#form-contenu").append("");
     $("#form-contenu").append("<div class='col-7'><p>" + $("#prenom").val() + "</p></div>");
 
     $("#form-contenu").append("<div class='col-5'><p>Date de naissance</p></div>");
@@ -37,3 +36,9 @@ $(document).ready(function() {
   });
 
 });
+
+function valider() {
+  	document.form[0].action = "http://localhost:8080/api/collaborateurs";
+  	document.form[0].method = "POST";
+  	document.form[0].submit();
+}

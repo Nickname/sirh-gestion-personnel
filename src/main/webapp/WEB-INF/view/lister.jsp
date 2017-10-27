@@ -14,6 +14,18 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
   <script src="<%=request.getContextPath()%>/script/nav.js"></script>
+  <script>
+  	function filter(value) {
+  		$("#collabo").hide();
+  		if (value == "All") {
+  			$("#collabo").show();
+  		} else {
+  			if ($("#dep").hasClass(value)) {
+  				$("#collabo").show();
+  			}
+  		}
+  	}
+  </script>
 </head>
 <body id="collaborateurs">
   <header id="bandeau" class="">
@@ -39,10 +51,11 @@
         </div>
         <div id="filtre_dep" class="row top5 col-12">
           <div class="col-8">Filtrer par département : </div>
-          <select class="form-control col-4" name="filtre_dep">
-            <option value="Comptabilité">Comptabilité</option>
-            <option value="Ressources Humaines">Ressources Humaines</option>
-            <option value="Informatique">Informatique</option>
+          <select class="form-control col-4" id="filtre_dep" onchange="filter(this.value)">
+            <option value="All">Tous</option>
+            <option value="COMPTA">Comptabilité</option>
+            <option value="RH">Ressources Humaines</option>
+            <option value="INFORMATIQUE">Informatique</option>
           </select>
         </div>
       </div>
@@ -72,7 +85,7 @@
             </span>
             <span class="row">
               <p>Département</p>
-              <p><%= collabo.getDepartement() %></p>
+              <p id="dep" class="<%=collabo.getDepartement()%>"><%= collabo.getDepartement().getLibelle() %></p>
             </span>
             <span class="row">
               <p>Email</p>

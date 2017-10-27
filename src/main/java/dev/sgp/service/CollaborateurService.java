@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dev.sgp.model.Collaborateur;
+import dev.sgp.model.Departement;
 
 public class CollaborateurService {
 	List<Collaborateur> collaborateurs = new ArrayList<>();
@@ -13,7 +14,10 @@ public class CollaborateurService {
 	}
 	
 	public void init() {
-		collaborateurs.add(new Collaborateur("Pingouin", "Bec"));
+		Collaborateur collab = new Collaborateur("Pingouin", "Bec");
+		collab.setDepartement(Departement.RH);
+		collaborateurs.add(collab);
+		
 	}
 	
 	public List<Collaborateur> listCollaborateur() {

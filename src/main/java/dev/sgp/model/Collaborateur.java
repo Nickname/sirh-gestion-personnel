@@ -12,13 +12,14 @@ public class Collaborateur {
 	private String prenom;
 	private String nom;
 	private String fonction;
-	private int departement;
 	private String adresse;
 	private String email;
 	private String tel;
 	private String matricule;
 	private LocalDate dateNaissance;
 	private String numeroSocial;
+	private Departement departement;
+	private String intitulePoste;
 	private ZonedDateTime dateCreation;
 	private boolean actif;
 	
@@ -62,11 +63,11 @@ public class Collaborateur {
 		this.fonction = fonction;
 	}
 	
-	public int getDepartement() {
+	public Departement getDepartement() {
 		return departement;
 	}
 	
-	public void setDepartement(int departement) {
+	public void setDepartement(Departement departement) {
 		this.departement = departement;
 	}
 	
@@ -128,5 +129,13 @@ public class Collaborateur {
 
 	public void setActif(boolean actif) {
 		this.actif = actif;
+	}
+
+	public String getIntitulePoste() {
+		return intitulePoste;
+	}
+
+	public void setIntitulePoste(String intitulePoste) {
+		this.intitulePoste = intitulePoste;
 	}
 }

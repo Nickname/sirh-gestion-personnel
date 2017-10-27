@@ -22,7 +22,7 @@
 
   <h1 class="row top10 col-md-12 col-lg-12">Nouveau collaborateur</h1>
 
-    <form method="POST" action="localhost:8080/collaborateurs">
+    <form method="POST" action="localhost:8080/api/collaborateurs">
       <div class="col-10 top10 offset-1">
         <div class="row">
           <div class="col mb-3">
@@ -61,7 +61,7 @@
         <div class="row">
           <div class="col mb-3">
             <label for="num_social">Numéro de sécurité sociale</label>
-            <input type="text" class="form-control" id="num_social" name="num_social" required>
+            <input type="text" class="form-control" id="num_social" name="num_social" maxlength="15" required>
             <div class="invalid-feedback">
               Numéro de sécurité sociale obligatoire
             </div>
@@ -90,7 +90,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-              <button type="button" class="btn btn-primary">Valider</button>
+              <input class="btn btn-primary" onclick="valider()">Valider</button>
             </div>
           </div>
         </div>
