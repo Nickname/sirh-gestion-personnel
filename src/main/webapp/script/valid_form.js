@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   $(".form-control").on("focusout", function() {
     var elem = $(this);
-    console.log("coucou");
+    
     if(elem.val().length == 0) {
       elem.removeClass("is-valid");
       elem.addClass("is-invalid");
@@ -20,25 +20,22 @@ $(document).ready(function() {
   $("#send").on("click", function(e) {
     e.preventDefault();
 
-    $("#val_nom>p").val() = $("#nom").val();
+    $("#val_nom>p").text($("#nom").val());
 
-    $("#form-contenu").append("");
-    $("#form-contenu").append("<div class='col-7'><p>" + $("#prenom").val() + "</p></div>");
-
-    $("#form-contenu").append("<div class='col-5'><p>Date de naissance</p></div>");
-    $("#form-contenu").append("<div class='col-7'><p>" + $("#date_naissance").val() + "</p></div>");
-
-    $("#form-contenu").append("<div class='col-5'><p>Adresse</p></div>");
-    $("#form-contenu").append("<div class='col-7'><p>" + $("#adresse").val() + "</p></div>");
-
-    $("#form-contenu").append("<div class='col-5'><p>Numéro de sécurité sociale</p></div>");
-    $("#form-contenu").append("<div class='col-7'><p>" + $("#num_social").val() + "</p></div>");
+    $("#val_prenom>p").text($("#prenom").val());
+    
+    $("#val_date_naissance>p").text($("#date_naissance").val());
+    
+    $("#val_adresse>p").text($("#adresse").val());
+    
+    $("#val_num_social>p").text($("#num_social").val());
   });
+  
+  $("#envoyer").on("submit", function() {
+	  	document.form[0].action = "http://localhost:8080/api/collaborateurs";
+	  	document.form[0].method = "POST";
+	  	document.form[0].submit();
+	});
 
 });
 
-function valider() {
-  	document.form[0].action = "http://localhost:8080/api/collaborateurs";
-  	document.form[0].method = "POST";
-  	document.form[0].submit();
-}

@@ -86,11 +86,23 @@
             </div>
             <div class="modal-body">
               <div class="col-12"><p>Vous êtes sur le point de créer un nouveau collaborateur :</p></div>
-              <div id="form-contenu" class="row"></div>
+              <div id="form-contenu" class="row">
+              	<div class='col-5'><p>Nom</p></div>
+              	<div id='val_nom' class='col-7'><p></p></div>
+              	<div class='col-5'><p>Prénom</p></div>
+              	<div id='val_prenom' class='col-7'><p></p></div>
+              	<div class='col-5'><p>Date de naissance</p></div>
+              	<div id='val_date_naissance' class='col-7'><p></p></div>
+              	<div class='col-5'><p>Adresse</p></div>
+              	<div id='val_adresse' class='col-7'><p></p></div>
+              	<div class='col-5'><p>Numéro de sécurité sociale</p></div>
+              	<div id='val_num_social' class='col-7'><p></p></div>
+              	
+              </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-              <input class="btn btn-primary" onclick="valider()">Valider</button>
+              <input id="envoyer" type="submit" class="btn btn-primary" value="Valider"/>
             </div>
           </div>
         </div>
