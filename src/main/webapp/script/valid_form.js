@@ -30,12 +30,5 @@ $(document).ready(function() {
     
     $("#val_num_social>p").text($("#num_social").val());
   });
-  
-  $("#envoyer").on("submit", function() {
-	  	document.form[0].action = "http://localhost:8080/api/collaborateurs";
-	  	document.form[0].method = "POST";
-	  	document.form[0].submit();
-	});
-
 });
 

@@ -27,10 +27,10 @@
       <div class="col-8">
         <div class="row">
           <div class="col-10">
-            <h1 class="display-p4">Nom PrÃ©nom - Matricule</h1>
+            <h1 class="display-p4">Nom Prénom - Matricule</h1>
           </div>
           <div class="col-1">
-            <button type="button" class="btn btn-danger top10" name="button">DÃ©sactiver</button>
+            <button type="button" class="btn btn-danger top10" name="button">Désactiver</button>
           </div>
         </div>
 
@@ -175,7 +175,7 @@
           </div>
 
         <div class="offset-10 col-1 top17">
-          <button id="send" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#ajoutModal" disabled>Sauvegarder</button>
+          <input id="send" type="button" class="btn btn-primary" data-toggle="modal" data-target="#ajoutModal" onclick="valider()" disabled>Sauvegarder</input>
         </div>
       </div>
     </div>

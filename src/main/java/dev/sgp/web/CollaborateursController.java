@@ -60,7 +60,9 @@ public class CollaborateursController extends HttpServlet {
 		
 		collabService.saveCollaborateur(collab);
 		
+		req.setAttribute("listeCollabo", collabService.listCollaborateur());
 		res.setStatus(200);
+		req.getRequestDispatcher("/WEB-INF/view/lister.jsp").forward(req, res);
 	}
 
 }
