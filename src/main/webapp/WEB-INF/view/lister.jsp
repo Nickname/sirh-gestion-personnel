@@ -15,15 +15,37 @@
   <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
   <script src="<%=request.getContextPath()%>/script/nav.js"></script>
   <script>
-  	function filter(value) {
-  		$("#collabo").hide();
-  		if (value == "All") {
-  			$("#collabo").show();
-  		} else {
-  			if ($("#dep").hasClass(value)) {
-  				$("#collabo").show();
-  			}
-  		}
+  $(document).ready(function() {
+	  $("#filtre_dep").on("change", function() {
+	  		var value = $("#filtre_dep  option:selected").val();
+	  		
+	  		if (value == "All") {
+	  			$("#collabo").show(); 
+	  		} else {
+	  			$("#collabo").hide();
+	  			$("#collabo").filter(function() {
+	  	  			return $(this).find("#dep").attr("value") == value;
+	  	  		}).each(function() {
+	  	  			$(this).show();
+	  	  		});
+	  		}
+	  	});
+  });
+  
+  	function filterByDep(value) {
+  		
+  		
+  		
+  	/*	$("#collabo").each(function() {
+  	  		if (value == "All") {
+  	  			$(this).show();
+  	  		} else {
+  	  			if ($(this).find("#dep").attr("value") == value) {
+  	  			console.log($(this).find("#dep").attr("value"));
+  	  				$(this).show();
+  	  			}
+  	  		}
+  		});*/
   	}
   </script>
 </head>
@@ -51,7 +73,7 @@
         </div>
         <div id="filtre_dep" class="row top5 col-12">
           <div class="col-8">Filtrer par département : </div>
-          <select class="form-control col-4" id="filtre_dep" onchange="filter(this.value)">
+          <select class="form-control col-4" id="filtre_dep" >
             <option value="All">Tous</option>
             <option value="COMPTA">Comptabilité</option>
             <option value="RH">Ressources Humaines</option>
@@ -73,31 +95,36 @@
 	for (Collaborateur collabo : listeCollabo) {
 	
 	%>
-
-      <div id="collabo" class="card border-primary md-3" style="width: 20rem;">
+	<div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+      <div id="collabo" class="card border-primary">
         <h4 id="name" class="card-header"><%= collabo.getPrenom() + " " + collabo.getNom() %></h4>
-        <div id="contenu" class="card-body">
-          <img class="card-img-left img-responsive col-4" style="max-height:150px; margin-top:25%;" src="<%=request.getContextPath()%>/img/collabo<%= collabo.getId() %>.jpg" alt="">
-          <div id="description" class="col-8">
+        <div id="contenu" class="card-body media">
+          <img class="img-responsive" style="max-height:150px; margin-top:25%;" src="<%=request.getContextPath()%>/img/collabo<%= collabo.getId() %>.jpg" alt="">
+          <div id="description" class="col media-body">
             <span class="row">
-              <p>Fonction</p>
-              <p><%= collabo.getFonction() %></p>
+              <p class="col text-info">Fonction</p>
+              
+              <p class="col"><%= collabo.getFonction() %></p>
             </span>
             <span class="row">
-              <p>Département</p>
-              <p id="dep" class="<%=collabo.getDepartement()%>"><%= collabo.getDepartement().getLibelle() %></p>
+              <p class="col text-info">Département</p>
+              <p class="col" id="dep" value="<%=collabo.getDepartement()%>"><%= collabo.getDepartement().getLibelle() %></p>
             </span>
             <span class="row">
-              <p>Email</p>
-              <p><%= collabo.getEmail() %></p>
+              <p class="col text-info">Email</p>
+              <p class="col"><%= collabo.getEmail() %></p>
+            </span> 
+            <span class="row">
+              <p class="col text-info">Téléphone</p>
+              <p class="col"><%= collabo.getTel() %></p>
             </span>
-            <span class="row"><p>Téléphone</p><p><%= collabo.getTel() %></p></span>
           </div>
         </div>
         <a href="editer.html">
           <button id="editer" type="button" class="btn btn-primary" name="button">Editer</button>
         </a>
       </div>
+    </div>
       
 	<%
 
