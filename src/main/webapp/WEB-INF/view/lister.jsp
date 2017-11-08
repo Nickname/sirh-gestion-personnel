@@ -1,5 +1,6 @@
 <%@ page import="dev.sgp.model.Collaborateur" %>
 <%@ page import="java.util.List" %>
+
 <%@ page language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +57,7 @@
   <div id="container" class="col-12 top10">
 
     <div class="row offset-8 col-4">
-      <a href="http://localhost:8080/sgp/page/collaborateurs/creer">
+      <a href="http://localhost:8080/sgp/page/collaborateurs/creer" style="text-decoration: none">
         <button class="btn btn-primary btn-block" type="button" name="button">
           Ajouter un nouveau collaborateur
         </button>

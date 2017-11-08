@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +17,7 @@ import dev.sgp.model.Departement;
 import dev.sgp.service.CollaborateurService;
 import dev.sgp.util.Constantes;
 
+@WebServlet("/api/collaborateurs")
 public class CollaborateursController extends HttpServlet {
 
 	/** serialVersionUID : long */
@@ -62,6 +65,30 @@ public class CollaborateursController extends HttpServlet {
 		
 		req.setAttribute("listeCollabo", collabService.listCollaborateur());
 		req.getRequestDispatcher("/WEB-INF/view/lister.jsp").forward(req, res);
+	}
+	
+	protected void doUpdate(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		ArrayList<String> params = new ArrayList<>();
+		res.setCharacterEncoding("UTF-8");
+		
+		params.add(req.getParameter("matricule"));
+		params.add(req.getParameter("titre"));
+		params.add(req.getParameter("nom"));
+		params.add(req.getParameter("prenom"));
+		
+		params.stream().forEach(p -> {
+			if (p == null)
+				try {
+					res.sendError(400, "Il manque un/des paramètre(s)");
+					throw new Exception("Erreur de paramètre");
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+		});
+		
+		res.setStatus(200);
+		res.getWriter().write("Création d'un collarborateur avec les informations suivantes :<br>"
+				+ params.stream().collect(Collectors.joining(",")));
 	}
 
 }

@@ -6,7 +6,7 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 public class Collaborateur {
-	private int id;
+	private Integer id;
 	private static int currentId = 100;
 	
 	private String prenom;
